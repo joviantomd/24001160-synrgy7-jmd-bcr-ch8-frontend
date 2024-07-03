@@ -21,7 +21,7 @@ const UserProvider: FC<UserProviderProps> = ({ children }) => {
           throw new Error('No token found');
         }
 
-        const response = await fetch('http://localhost:3000/user/whoami', {
+        const response = await fetch('https://synrgy7-jmd-bcr.up.railway.app/user/whoami', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

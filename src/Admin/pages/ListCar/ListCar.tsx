@@ -45,7 +45,7 @@ const ListCar: React.FC = () => {
             return;
         }
         try {
-            const response = await fetch(`http://localhost:3000/cars/${carId}`, {
+            const response = await fetch(`https://synrgy7-jmd-bcr.up.railway.app/cars/${carId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -76,7 +76,7 @@ const ListCar: React.FC = () => {
                 return;
             }
             try {
-                const response = await fetch("http://localhost:3000/cars/all", {
+                const response = await fetch("https://synrgy7-jmd-bcr.up.railway.app/cars/all", {
                     headers: {
                         Authorization: `Bearer ${token}` // Menggunakan token untuk otentikasi
                     }

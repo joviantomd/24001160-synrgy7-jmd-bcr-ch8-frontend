@@ -29,7 +29,7 @@ const FilterCar: React.FC = () => {
     const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
 
     useEffect(() => {
-        fetch("https://localhost:3000/cars/all")
+        fetch("https://synrgy7-jmd-bcr.up.railway.app/cars/all")
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
