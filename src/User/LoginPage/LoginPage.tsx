@@ -13,7 +13,7 @@ const LoginUser: React.FC = () => {
         const loginData = { email, password }; // Menggunakan email dan password untuk data login
 
         try {
-            const response = await fetch("http://localhost:3000/user/login", {
+            const response = await fetch("https://synrgy7-jmd-bcr-ch8-frontend.vercel.app/user/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
