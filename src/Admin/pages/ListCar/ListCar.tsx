@@ -61,7 +61,8 @@ const ListCar: React.FC = () => {
             setCars(prevCars => prevCars.filter(car => car.id !== carId));
         } catch (error) {
             //@ts-expect-ignore
-            setError(error.message || "Failed to delete car");
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            setError((error as any).message || "Failed to delete car");
             console.error("Error deleting car:", error);
         }
     };
@@ -98,7 +99,8 @@ const ListCar: React.FC = () => {
             } catch (error) {
                 setLoading(false);
                 //@ts-expect-ignore
-                setError(error.message || "Failed to fetch data");
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                setError((error as any).message || "Failed to fetch data");
                 console.error("Error fetching data:", error);
             }
         };
