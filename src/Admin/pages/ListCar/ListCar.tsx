@@ -5,11 +5,12 @@ import { format } from 'date-fns';
 
 
 const ListCar: React.FC = () => {
-    //@ts-ignore
-    const [cars, setCars] = useState<unknown[]>([]);
+    //@ts-expect-ignore
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [cars, setCars] = useState<any[]>([]);
     const [activeFilter, setActiveFilter] = useState<string>("All");
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string>("");
+    const [error, setError] = useState<string | null>(null);
     const [, setIsLoggedIn] = useState<boolean>(false); // State untuk status autentikasi
     const [token, setToken] = useState<string>(""); // State untuk menyimpan token JWT
 
@@ -56,10 +57,10 @@ const ListCar: React.FC = () => {
             }
 
             // Remove the deleted car from the state
-            //@ts-ignore
+            //@ts-expect-ignore
             setCars(prevCars => prevCars.filter(car => car.id !== carId));
         } catch (error) {
-            //@ts-ignore
+            //@ts-expect-ignore
             setError(error.message || "Failed to delete car");
             console.error("Error deleting car:", error);
         }
@@ -96,7 +97,7 @@ const ListCar: React.FC = () => {
                 setLoading(false);
             } catch (error) {
                 setLoading(false);
-                //@ts-ignore
+                //@ts-expect-ignore
                 setError(error.message || "Failed to fetch data");
                 console.error("Error fetching data:", error);
             }
@@ -108,7 +109,7 @@ const ListCar: React.FC = () => {
     }, [token]);
     //
     const filteredCars = activeFilter === "All"
-        ? cars //@ts-ignore
+        ? cars //@ts-expect-ignore
         : cars.filter(car => car.category.toLowerCase() === activeFilter.toLowerCase());
 
     if (loading) {
@@ -157,7 +158,7 @@ const ListCar: React.FC = () => {
             </div>
             <div className="SectionViewCars">
                 {filteredCars.map(car => (
-                    //@ts-ignore
+                    //@ts-expect-ignore
                     <div key={car.id} className="HeadCardCar">
                         <img className="img-car" src={car.image} alt={car.name} />
                         <div className="BodyCardCar">
