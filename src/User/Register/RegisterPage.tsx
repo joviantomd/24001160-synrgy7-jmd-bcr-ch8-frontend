@@ -18,7 +18,7 @@ const RegisterUser: React.FC = () => {
 
 
         try {
-            const response = await fetch("https://synrgy7-jmd-bcr-ch8-frontend.vercel.app/user/register", {
+            const response = await fetch("https://synrgy7-jmd-bcr.up.railway.app/user/register", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
